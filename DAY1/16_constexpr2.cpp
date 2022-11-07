@@ -17,11 +17,21 @@ constexpr int Factorial(int n)
 int main()
 {
 	int n = 5;
-	int s = Factorial(5);
 
-	int arr1[Factorial(5)]; 
+	int arr1[Factorial(5)]; // 컴파일 하면 "int arr1[120]"			
+							// 즉, 함수의 실행을 컴파일 할때 수행
 
-	int arr2[Factorial(n)]; 
+	int arr2[Factorial(n)];	// error. 
+							// 인자값을 컴파일 할때 알수 없다.
 						
-	int s2 = Factorial(n); 
+	int s2 = Factorial(n);	// ok. 실행할때 함수 호출
+
+
+	int s = Factorial(5);	// 컴파일시간에 할수도 있고 실행시간에 호출할수도
+							// 있습니다. 
+							// 컴파일러마다 다름
+	const int s3 = Factorial(5); // 컴파일러마다 다름
+
+	constexpr int s4 = Factorial(5); //반드시 컴파일 할때 해달라.
+
 }
