@@ -21,14 +21,18 @@ int main()
 
 template<typename T> void object_set_zero(T* p)
 {
+	// std::is_polymorphic<T>::value : T 안에 가상함수가 있으면 true!
+
+	static_assert(!std::is_polymorphic<T>::value,
+					"error, T has virtual function");
+
 	memset(p, 0, sizeof(T)); // 안전한 코드 일까요 ?
 }
-
 class Object
 {
 	int data;
 public:
-	virtual void foo() {}
+//	virtual void foo() {}
 };
 
 int main()
@@ -36,3 +40,9 @@ int main()
 	Object obj;
 	object_set_zero(&obj);
 }
+
+// 결국 "static_assert" 는
+// => 기능, 성능의 도구가 아니라!
+// => 안전한 코드를 작성하기 위한 도구 입니다.
+// => STL 내부나, 오픈소스에서 아주 널리 사용됩니다.
+// => 교재 9page 예제 몇개 더 있습니다.
