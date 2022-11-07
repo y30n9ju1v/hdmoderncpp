@@ -3,6 +3,7 @@
 #include <string>
 #include <chrono>
 #include <thread>
+#include <complex>
 using namespace std::chrono; 
 
 using namespace std::literals; // C++11 operator"" 栏肺 父电
@@ -20,6 +21,11 @@ int main()
 					// hours 按眉 + minutes 按眉 + seconds 按眉
 
 	std::cout << s.count() << std::endl; // 4820
+
+
+	std::complex<double> c1(3);  // 3 + 0i
+	std::complex<double> c2(3i); // 0 + 3i
+								// c2(0, 3)
 }
 
 
