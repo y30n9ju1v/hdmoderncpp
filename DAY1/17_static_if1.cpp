@@ -8,9 +8,12 @@
 template<typename T> 
 void foo(T a)
 {
-	if (std::is_pointer<T>::value)
+	if ( std::is_pointer<T>::value )
 	{
 		std::cout << "포인터" << std::endl;
+
+		// a가 포인터 이므로 값을 꺼내고 싶다 ?
+		int n = *a;
 	}
 	else
 	{
@@ -20,6 +23,6 @@ void foo(T a)
 int main()
 {
 	int n = 0;
-	foo(n);
+	foo(n); // T = int
 }
 
