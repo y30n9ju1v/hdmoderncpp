@@ -8,6 +8,7 @@ constexpr int add2(int a, int b) { return a + b; }
 
 // consteval 함수 (C++20)
 // => 컴파일 시간에만 실행될수 있습니다.
+// => 왜 만드나요?, concept,  template 기술에 사용됩니다.
 consteval int add3(int a, int b) { return a + b; }
 
 int main()
