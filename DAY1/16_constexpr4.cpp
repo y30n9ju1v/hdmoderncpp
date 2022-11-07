@@ -12,6 +12,7 @@ constexpr std::pair<int, bool> add(int a, int b)
 int main()
 {
 	auto ret = add(1, 2);
+//	constexpr auto ret = add(1, 2);
 
 	std::cout << ret.second << std::endl;
 }
