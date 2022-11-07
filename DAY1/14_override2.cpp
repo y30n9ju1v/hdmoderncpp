@@ -3,15 +3,15 @@
 template<typename T> class Base
 {
 public:
-	virtual void foo(T a)
+	virtual void foo(const T a)
 	{
 		std::cout << "Base foo" << std::endl;
 	}
 };
-
 class Derived : public Base<int*>
 {
 public:
+	// 가상함수 재정의시 override 붙이지 말고 해보세요.
 
 };
 
