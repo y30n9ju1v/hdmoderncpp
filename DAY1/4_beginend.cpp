@@ -2,6 +2,7 @@
 #include <vector>
 #include <list>
 #include <iostream>
+#include <ranges>
 
 int main()
 {
@@ -37,5 +38,12 @@ int main()
 	// => 아래 코드를 잘생각해 보세요
 	auto p4 = std::begin( std::vector<int>{1, 2, 3} );
 
-	int n1 = *p4; // ??
+	int n1 = *p4;	// runtime error
+					// 컨테이너는 이미 파괴 되었다.
+
+	auto p5 = std::ranges::begin(std::vector<int>{1, 2, 3});
+	int n2 = *p5; // 컴파일 에러
+					// p5 의 타입은
+					// "std::dangling_iterator" 라는 타입입니다.
+					// C++20 에서 새로 만든 개념입니다.
 }
