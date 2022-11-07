@@ -18,7 +18,7 @@ int main()
 	std::nullptr_t arg = nullptr;
 
 	// std::nullptr_t 타입은 모든 종류의 포인터로 암시적 형변환 됩니다.
-	int* p1 = arg;
+	int*  p1 = arg;
 	char* p2 = arg;
 
 }

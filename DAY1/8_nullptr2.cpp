@@ -6,8 +6,8 @@
 template<typename F, typename T>
 void forward_argument(F f, T arg)	// int arg = 0; 일때
 {									// foo(arg) 이므로 에러
-
-	f(arg);
+									// std::nullptr_t arg = nullptr
+	f(arg);							// foo(arg) 는 ok.. 
 }
 void foo(int*) { std::cout << "foo" << std::endl; }
 
