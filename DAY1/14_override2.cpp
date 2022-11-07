@@ -29,3 +29,9 @@ int main()
 	Base<int*>* p = new Derived;
 	p->foo(0); // "Derived foo" 나오게 해보세요.
 }
+
+// 위코드가 어려우신 분은 아래 3줄 C언어에서 찾아 보세요
+int n = 0;
+const int* p1 = &n;
+int const* p2 = &n;
+int* const p3 = &n;
