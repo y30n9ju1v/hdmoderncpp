@@ -17,6 +17,6 @@ public:
 
 int main()
 {
-	Base<int>* p = new Derived;
+	Base<int*>* p = new Derived;
 	p->foo(0); // "Derived foo" 나오게 해보세요.
 }
