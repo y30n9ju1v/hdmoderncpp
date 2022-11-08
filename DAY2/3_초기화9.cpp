@@ -31,6 +31,10 @@ int main()
 	// C++11 이후 STL 사용시 아래 처럼 사용 가능한 원리
 	std::vector<int> v1{ 1,2,3,4,5 };
 	std::vector<int> v2 = { 1,2,3,4,5 };
+				// vector(std::initializer_list<T>) 생성자 사용
+
+	// std::initializer_list<T> 는 가벼운 타입입니다.
+	// call by value 로 사용하면 됩니다.
 }
 
 
