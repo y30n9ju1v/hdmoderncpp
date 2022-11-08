@@ -16,6 +16,7 @@ int main()
 	int x[2] = { 1,2 };
 	std::complex<double> c = { 1, 2 };
 
+
 	// = 이 없어도 됩니다.
 	int n1 { 10 };
 	int x[2] { 1,2 };
