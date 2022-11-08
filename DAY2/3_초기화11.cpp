@@ -11,8 +11,14 @@ struct Point
 {
 	int x, y;
 
-	Point()             : x(0), y(0) {}	// 1
+//	Point()             : x(0), y(0) {}	// 1
 //	Point(int a, int b) : x(a), y(b) {}	// 2
+
+	Point() = default; // 이 코드가 있어도 "aggregate" 입니다.
+
+//	virtual void foo() {} // 가상함수가 있으면 "aggregate" 아닙니다.
+
+	void goo() {} // 일반 멤버 함수는 있어도 "aggregate" 입니다.
 };
 
 int main()
