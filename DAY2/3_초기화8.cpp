@@ -2,6 +2,12 @@
 #include <iostream>
 #include <initializer_list> // 핵심
 
+// list       : 떨어진 메모리, 요소가 힙
+// vector     : 연속된 메모리, 요소가 힙
+// std::array : 연속된 메모리, 요소가 스택도 가능, 요소 소유
+// std::initializer_list : 연속된 메모리, 요소가 스택도 가능, 
+//							시작 주소와 마지막 다음주소(또는 개수)만관리
+
 void foo(std::initializer_list<int> e)
 {
 }
