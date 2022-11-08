@@ -33,7 +33,7 @@ int main()
 	// C++에는 4개의 평가되지 않은 표현식이 있습니다.
 	decltype(foo(1, 3.4)) d;
 
-	boolb = noexcept(foo(1, 3.4));
+	bool b = noexcept(foo(1, 3.4));
 
 	int n = sizeof((foo(1, 3.4)));
 	
