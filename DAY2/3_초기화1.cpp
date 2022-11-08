@@ -9,7 +9,7 @@ class Test
 	// => 쉬워 보이는데, 원리를 알아 두세요
 	// => 주의 "0" 같은 리터럴 초기화만 사용하세요. 
 	// => "++x" 같은 표기법은 사용하지 마세요.
-	int value1 = 0;
+	int value1 = 0;		// field initialization
 	int value2 = ++x;
 public:	
 	Test() {}
