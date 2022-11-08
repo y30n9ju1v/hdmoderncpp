@@ -10,5 +10,7 @@ istream cin;
 
 int main()
 {
+	int n = 0;
+
 	if (cin) {}
 }
