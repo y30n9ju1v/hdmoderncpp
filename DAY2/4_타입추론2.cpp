@@ -6,9 +6,16 @@
 
 template<typename T> void foo(T a)
 {
-	a = 100;
+//	a = 100;
 	// T의 타입을 확인 하는 방법 1. C++ RTTI 기술 사용
-	std::cout << typeid(T).name() << std::endl;
+	// => reference, volatile 기호가 표시되지 않습니다.
+	// => 정확하지 않습니다. 사용하지 마세요
+	// std::cout << typeid(T).name() << std::endl;
+
+	// 함수 이름을 출력하는 매크로를 사용하세요
+	// VC++ : __FUNCSIG__
+	// g++  : __PRETTY_FUNCTION__
+	std::cout << __FUNCSIG__ << std::endl;
 }
 
 int main()
@@ -39,4 +46,6 @@ int main()
 
 	const char* const s2 = "hello";
 	foo(s2); // T = const char*
+			 //     char const* 와 동일
+			 //     char* const 이 표현이 다른 타입(포인터 자체가 const)
 }
