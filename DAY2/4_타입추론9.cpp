@@ -31,14 +31,16 @@ int main()
 	decltype(foo(1, 3.4)) ret5 = foo(1, 3.4);
 
 	// C++에는 4개의 평가되지 않은 표현식이 있습니다.
+	// => 평가되지 않은 표현식에 들어가는 함수는 선언만 있어도 됩니다.
 	decltype(foo(1, 3.4)) d;
 
 	bool b = noexcept(foo(1, 3.4));
 
-	int n = sizeof((foo(1, 3.4)));
+	int n = sizeof((foo(1, 3.4));
 	
 	typeid(foo(1, 3.4)).name();
 }
 
-
+// int goo(int a);
+// int n = sizeof(goo(3)); // 4. 에러 아님. 선언만 보면 알수 있음.
 
