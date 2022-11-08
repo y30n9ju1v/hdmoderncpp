@@ -5,8 +5,11 @@
 // => const volatile 은 유지
 template<typename T> void foo(T& a)
 {
-	std::cout << typeid(T).name() << std::endl; 
-			// => 잘못된 결과, reference 를 출력 못합니다.
+//	std::cout << typeid(T).name() << ", " << 
+//		         typeid(a).name() <<std::endl;
+			// => 잘못된 결과, reference, const, volatile 를 출력 못합니다.
+
+	std::cout << __FUNCSIG__ << std::endl;
 }
 
 int main()
