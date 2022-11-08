@@ -8,6 +8,8 @@ class Opt
 {
 	T value;
 public:
+	// explicit(true) 持失切;
+	// explicit(false) 持失切;
 	explicit(std::is_integral<T>::value) 
 	Opt(T n) : value(n) {}
 };
