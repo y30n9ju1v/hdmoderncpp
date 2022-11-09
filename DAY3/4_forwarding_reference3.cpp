@@ -54,12 +54,44 @@ int main()
 	int n = 0;
 
 	// 1. 타입을 직접 전달하는 경우. 아래 ? 채워 보세요
-	f4<int>(? );	// T=?		T&&=?			f4(? a)
-	f4<int&>(? );	// T=?		T&&=?			f4(? a)
-	f4<int&&>(? );	// T=?		T&&=?			f4(? a)
+	f4<int>(0);		// T=int	T&&=int&&		f4(int&& a)
+	f4<int&>(n);	// T=int&	T&&=int&  &&	f4(int&  a)
+	f4<int&&>(0);	// T=int&&	T&&=int&& &&	f4(int&& a)
+
 
 	// 2. 타입인자를 생략하는 경우
 
-	f4(n);
-	f4(0);
+	f4(n);	// 1. n 은 int 타입이다. T=int 로 결정하자!!
+			// => 생성된 함수는 f4(int&& a) 이므로 "f4(n)" 은 에러!!
+				  
+			// 2. n 은 int 타입이지만, T=int& 로 결정하면 
+			// => f4(int&) 가 되므로 "f4(n)" 은 에러가 아니다.
+			// => T=int& 로 결정하자!! => 정답!!!!
+
+	f4(0);	// T=int 또는 int&& 로 결정하면 되는데.
+			// 표준에서는 "T=int"로 결정
+			// 생성된 함수는 "f4(int&&)"
 }
+
+// T&& : 임의 타입의 lvalue 와 rvalue 를 모두 받을수 있다.
+//       "받을수 있다" 는 "받을수 있는 함수를 생성할수 있다" 의 의미
+// 
+// 특징 : 생성된 함수는 모두 "call by reference" 입니다.!!
+
+// 즉, 모든 객체를 복사본 없이 받겠다는 것!!
+
+// 아래 주석 반드시 외우세요..!!
+// 함수 인자로 
+// lvalue(n) 을 보내면 : T=int&    T&&=int& &&  최종함수 f4(int&)
+// rvalue(0) 을 보내면 : T=int     T&&=int&&    최종함수 f4(int&&)
+
+// 이름
+// int&  : lvalue reference
+// int&& : rvalue reference
+// T&    : lvalue reference
+
+// T&&   : rvalue reference 가 아닙니다.
+//         "forwarding reference" 가 공식 명칭
+//		   "universal reference" 라고도 합니다.(effective-C++)
+
+
