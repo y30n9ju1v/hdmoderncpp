@@ -7,27 +7,35 @@ class Cat
 	char* name;
 	int   age;
 	std::string addr;
-
 public:
-	Cat(const char* n, int a) : age(a)
+	Cat(const char* n, int a, const std::string& add) 
+		: age(a), addr(add)
 	{
 		name = new char[strlen(n) + 1];
 		strcpy_s(name, strlen(n) + 1, n);
 	}
 	~Cat() { delete[] name; }
 
-	Cat(const Cat& c) : age(c.age)
+	// 복사 생성자
+	Cat(const Cat& c) : age(c.age), addr(c.addr)
 	{
 		name = new char[strlen(c.name) + 1];
 		strcpy_s(name, strlen(c.name) + 1, c.name);
 		std::cout << "복사" << std::endl;
 	}
 
-	Cat(Cat&& c) : age(c.age), name(c.name)
+	// 핵심 : move 생성자에서는 모든 멤버를 move로 옮기세요!
+	// addr(c.addr) : string 의 복사 생성자 호출 - 문자열의 복사 입니다
+	// addr(std::move(c.addr)) : string 의 move 생성자 호출
+
+	// 단, primitive 타입의 경우 "std::move" 가 있어도 되고 없어도 됩니다.
+	Cat(Cat&& c) : age(c.age), name(c.name), addr(std::move(c.addr))
 	{
 		c.name = nullptr;
 		std::cout << "이동" << std::endl;
 	}
+
+
 
 
 	Cat& operator=(const Cat& c)
