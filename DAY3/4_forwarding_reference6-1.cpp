@@ -36,7 +36,7 @@ Object foo()
 
 
 template<typename T>
-T&& xmove(T& obj)
+T&& xmove(T&& obj)
 {
 	return static_cast<T&&>(obj);
 }
