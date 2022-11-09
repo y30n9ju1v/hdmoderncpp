@@ -31,14 +31,12 @@ int main()
 					// => move 생성자에 예외가 없다면 move 생성자
 					//                      있다면 복사 생성자 사용
 
-
-
-
-
 	std::vector<Object> v(5);
 	std::cout << "----------------" << std::endl;
 
-	v.resize(10); // 이순간의 원리를 생각해봅시다.
+	v.resize(10);	// 이순간의 원리를 생각해봅시다.
+					// 작은 버퍼의 요소를 큰 버퍼로 옮길때
+					// "std::move_if_noexcept" 사용합니다.
 
 	std::cout << "----------------" << std::endl;
 }
