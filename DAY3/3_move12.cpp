@@ -30,7 +30,6 @@ public:
 	//    동일이름의 멤버 함수를 2개 제공해야 합니다.
 	void set_name(const std::string& n) { name = n; }
 	void set_name(std::string&& n)      { name = std::move(n); }
-
 };
 
 int main()
@@ -46,6 +45,11 @@ int main()
 	std::cout << s1 << std::endl; // "kim"
 	std::cout << s2 << std::endl; // ""
 
+	//=========================
+	std::vector<std::string> v;
+
+	v.push_back(s1);			// s1의 자원을 복사해서 v에 추가
+	v.push_back(std::move(s1)); // s1의 자원을 이동
 }
 
 
