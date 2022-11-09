@@ -68,3 +68,11 @@ int main()
 	Object o6 = std::move(o5); // std::move 에 마우스 올리고, "정의로이동"
 }
 
+/*
+template <class _Ty>
+_NODISCARD constexpr remove_reference_t<_Ty>&& 
+move(_Ty&& _Arg) noexcept 
+{
+	return static_cast<remove_reference_t<_Ty>&&>(_Arg);
+}
+*/
