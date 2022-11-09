@@ -2,6 +2,19 @@
 
 // rule of 5, 3
 
+// 클래스안에 포인터 멤버가 있고, 생성자에서 자원을 할당하면
+
+// C++98 시절 : 3개의 함수를 반드시 만들어야 합니다.
+//			   "소멸자", "복사생성자", "대입연산자"
+//			   "Rule Of 3" 라는 용어를 사용했습니다.
+
+// C++11 이후 : 위 규칙에 추가로 2개의 함수를 더 만들면 좋다
+//				"move 생성자", "move 대입연산자"
+//				"Rule Of 5"
+
+// Rule Of 0 : 아무것도 안만드는 것이 최선이다!
+
+
 class Cat
 {
 	char* name;
@@ -47,8 +60,7 @@ public:
 	{
 		if (&c == this) return *this;
 
-		age = c.age;
-	
+		age = c.age;	
 		delete[] name;
 		name = c.name;	// move 버전은 얕은 복사후
 		c.name = nullptr;// 원본 객체 자원포인터 reset
