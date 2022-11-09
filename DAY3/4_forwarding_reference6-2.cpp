@@ -49,6 +49,8 @@ std::remove_reference_t<T>&& xmove(T&& obj)
 	// move 는 "move 생성자" 를 호출하게 해야 하므로
 	// => "항상 rvalue 캐스팅을 해야 합니다."
 
+	// std::remove_reference_t<T> : T 가 가진 모든 레퍼런스를 제거한 타입구하기
+	// T: Object& 일때 위 결과는 "Object"
 	return static_cast<std::remove_reference_t<T>&&>(obj);
 }
 
@@ -62,5 +64,7 @@ int main()
 	Object o5 = xmove(foo());	// foo() 는 rvalue
 								// T=Object		T&&=Object&&
 								// static_cast<T&&>=>static_cast<Object&&> 
+
+	Object o6 = std::move(o5); // std::move 에 마우스 올리고, "정의로이동"
 }
 
