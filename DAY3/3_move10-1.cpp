@@ -44,5 +44,18 @@ int main()
 	Object o3 = std::move(o1); 
 	Object o4 = std::move_if_noexcept(o2);
 
+	// 반드시 "noexcept" 이어야 하는 것들
+	// => noexcept를 안 붙여도 noexcept 입니다.
+	// 1. 소멸자
+	// 2. operator delete() 함수
+
+	// 되도록 "noexcept" 로 하라고 강력! 권장하는 것
+	// 1. move 생성자, move 대입 연산자
+	// 2. swap() 함수
+
+	// "noexcept" 를 붙이면 좋은 함수
+	// 1. 생성자(특히 default 생성자)
+
+	std::pair<int, int> p1(1, 2);
 }
 
