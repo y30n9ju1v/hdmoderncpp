@@ -56,6 +56,9 @@ int main()
 	// "noexcept" 를 붙이면 좋은 함수
 	// 1. 생성자(특히 default 생성자)
 
-	std::pair<int, int> p1(1, 2);
+	std::pair<int, double> p1;
+				// 디폴트 생성자에 noexcept 를 붙일수 있는지 여부는
+				// T1, T2 타입의 디폴트 생성자에 예외 여부에 달려 있습니다.
+			
 }
 
