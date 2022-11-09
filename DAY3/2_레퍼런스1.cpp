@@ -48,4 +48,11 @@ int main()
 	
 	Point&& r5 = pt;			// error
 	Point&& r6 = Point(0, 0);	// ok 
+
+
+	// 그럼. const rvalue reference 는 어떻게 되나요 ?
+	// => rvalue 만 가리킬수 있습니다.
+	// => 그런데, 거의 사용되지 않기 때문에 중요하지는 않습니다.
+	const Point&& r7 = pt;			// error
+	const Point&& r8 = Point(0, 0);	// ok 
 }
