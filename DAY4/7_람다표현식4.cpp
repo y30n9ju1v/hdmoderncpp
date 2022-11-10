@@ -38,6 +38,7 @@ int main()
 
 	// 해결책 : 동일한 람다 표현식이 여러번 사용된다면
 	// auto 변수에 담아서 사용하세요
+	// 아래 처럼 하면 "for_each" 는 한개만 생성됩니다.
 	auto show = [](int n) { std::cout << n; };
 
 	std::for_each(x, x + 3, show );
