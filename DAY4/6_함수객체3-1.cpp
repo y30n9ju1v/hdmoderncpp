@@ -23,10 +23,17 @@ int main()
 	bool b = f(10); // 결국 "10 % k == 0" 을 조사하는 단항 함수
 					// 즉, f는 k의 값을 캡쳐한 단항함수 입니다.
 
-
 	// 주어진 구간에서 1번째 나오는 "k 의 배수" 를 찾고 싶다.!
-	auto p2 = std::find_if(v.begin(), v.end(), "단항함수 + k값");
+	auto p2 = std::find_if(v.begin(), v.end(), f);
 
+	std::cout << *p2 << std::endl; // 6
+
+	// 임시객체형태로 전달
+	auto p3 = std::find_if(v.begin(), v.end(), foo);	
+								// => 단항 함수만 전달
+
+	auto p4 = std::find_if(v.begin(), v.end(), IsDivide(k));
+								// => 단항 함수 + 지역변수k 전달
 }
 
 
