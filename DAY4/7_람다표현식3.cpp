@@ -14,13 +14,21 @@ int main()
 
 
 	// 핵심 3. 다음중 에러를 모두 고르세요!
+	// => 람다 표현식은 "임시객체(rvalue)" 입니다. 
 
-	auto  a1 = [](int a, int b) { return a + b; };
-	auto& a2 = [](int a, int b) { return a + b; };
+	auto  a1 = [](int a, int b) { return a + b; };	// ok
 
-	const auto& a3 = [](int a, int b) { return a + b; };
+	auto& a2 = [](int a, int b) { return a + b; };	// error
 
-	auto&& a4 = [](int a, int b) { return a + b; };	
+	const auto& a3 = [](int a, int b) { return a + b; }; // ok
 
+	auto&& a4 = [](int a, int b) { return a + b; };	// ok
+	// forwarding reference !!
+
+	// 위 4개중 제일 좋은 코드는 "a1" 입니다.
+	CompilerGenratedName a1 = CompilerGenratedName(); // 인데
+				// 복사(move) 생성자 최적화 에 의해서 아래코드 처럼됩니다.
+
+	CompilerGenratedName a1; 
 }
 
