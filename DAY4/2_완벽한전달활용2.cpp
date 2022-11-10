@@ -23,6 +23,11 @@ int main()
 	// C++ 표준 shared_ptr 을 사용할때는
 	// "std::make_shared" 로 만드는 것이 좋습니다.(강력권장)
 	std::shared_ptr<Point> sp2 = std::make_shared<Point>(1, 2);
+
+					// 1. sizeof(관리객체) + sizeof(Point) 할당
+					// 2. Point 생성자 호출. 1,2 전달
+					// 3. shared_ptr 을 만들어서 반환
+
 }
 
 
