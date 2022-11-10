@@ -22,7 +22,10 @@ int main()
 	}
 
 	for (auto& e : v2) // error.. 왜 ?? 에러일까요 ?
-	{
+	{	
+		// 결국 "반복자"로 아래 처럼 꺼내게 됩니다.
+		auto& e = *first; // 이때 "*first" 의 반환값은 bool& 이아닌
+						  // proxy 임시객체(rvalue) 입니다.
 	}
 }
 
