@@ -11,7 +11,10 @@ int main()
 	std::for_each(v.begin(), v.end(),
 		[](int n) { std::cout << n << std::endl; });
 
+	//===========================================
 	// 람다표현식의 원리.
+	// => 함수객체를 만드는 표기법 입니다.
+	// => 흔히 "closure"를 만드는 표기법 이라고도 합니다.
 
 	class CompilerGeneratedName
 	{
