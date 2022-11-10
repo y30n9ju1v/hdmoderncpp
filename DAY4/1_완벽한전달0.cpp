@@ -13,6 +13,7 @@ int main()
 	int& r1 = n;
 	foo(r1);	// int&
 
+	int&& r3 = static_cast<int&&>(r1);
 
 	int&& r2 = 10;	// 이 코드에서
 					// "10" 은 rvalue 이지만
