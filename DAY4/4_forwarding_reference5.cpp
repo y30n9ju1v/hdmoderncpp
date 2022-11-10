@@ -21,7 +21,7 @@ class vector<bool>
 {
 	int* buff;
 public:
-	vector(std::size_t sz, T value)
+	vector(std::size_t sz, bool value)
 	{
 		buff = new int[(sz / 32) + 1];  // 0~31 : int 1개
 										// 32~63: int 2개로 관리
@@ -32,17 +32,28 @@ public:
 		int idx;
 	public:
 		bit_proxy(int* p, int n) : buff(p), idx(n) {}
+
+		operator bool()
+		{
+			std::cout << "v[] 가 우변에 있을때" << std::endl;
+			return buff[idx];
+		}
+		bit_proxy& operator=(bool b)
+		{
+			std::cout << "v[] 가 좌변에 있을때" << std::endl;
+			buff[idx] = b;
+			return *this;
+		}
 	};
 	bit_proxy operator[](int idx) { return bit_proxy(buff, idx); }
 };
-
 int main()
 {
-	std::vector<int>  v1(10, 0);
-	std::vector<bool> v2(10, 0); 
+	vector<int>  v1(10, 0);
+	vector<bool> v2(10, 0); 
 
-	bool b = v2[0];
-	v2[0]  = true;
+	bool b = v2[0]; // bit_proxy임시객체.operator bool()
+	v2[0]  = true;  // bit_proxy임시객체.operator=(true)
 
 	
 }
