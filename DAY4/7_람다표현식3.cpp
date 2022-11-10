@@ -12,6 +12,15 @@ int main()
 	int n1 = f(1, 2);
 	int n2 = f.operator()(1, 2); // 이렇게도 가능합니다.
 
-	// 핵심 3. 
+
+	// 핵심 3. 다음중 에러를 모두 고르세요!
+
+	auto  a1 = [](int a, int b) { return a + b; };
+	auto& a2 = [](int a, int b) { return a + b; };
+
+	const auto& a3 = [](int a, int b) { return a + b; };
+
+	auto&& a4 = [](int a, int b) { return a + b; };	
+
 }
 
