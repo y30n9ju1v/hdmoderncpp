@@ -3,21 +3,22 @@
 #include <algorithm>
 #include "stopwatch.h"
 
-constexpr int size = 1000000;
+constexpr int size = 100000000;
 int x[size] = { 0 };
+
+int s1 = 0;
+int s2 = 0;
 
 inline void foo(int n)
 {
-	static int s = 0;
-	s += n;
+	s1 += n;
 }
 
 struct FOO
 {
 	inline void operator()(int n) const
 	{
-		static int s = 0;
-		s += n;
+		s2 += n;
 	}
 };
 
@@ -32,6 +33,6 @@ void task2()
 }
 int main()
 {
-	chronometry(task1);
+//	chronometry(task1);
 	chronometry(task2);
-}
+}   
