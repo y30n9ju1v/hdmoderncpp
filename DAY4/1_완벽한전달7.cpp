@@ -23,7 +23,7 @@ void foo(T&& arg)
 	// 2. 인자의 value 속성에 상관없이 무조건 rvalue 로 캐스팅
 	// => std::move()의 원리
 	Object o2 = static_cast<std::remove_reference_t<T>&&>(arg);
-}
+} 
 
 int main()
 {
