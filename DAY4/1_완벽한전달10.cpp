@@ -13,11 +13,11 @@ decltype(auto) chronometry(F f, T&& ... arg)
 	return f(std::forward<T>(arg)...);
 }
 
-void foo(int n, double d)
+void foo(int n, double d) 
 {
 	std::this_thread::sleep_for(std::chrono::seconds(3));
 }
 int main()
 {
-	chronometry(foo, 1, 3.4);
+	chronometry(foo, 1, 3.4); // foo(1, 3.4)
 }
