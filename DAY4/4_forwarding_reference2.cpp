@@ -19,28 +19,23 @@ public:
 //	void set_name(const std::string& n) { name = n; }
 //	void set_name(std::string&& n)      { name = std::move(n); }
 
-
 	// 방법 2. forwarding reference 사용
-
-	template<typename T>
-	void set_name(T&& n)
+	template<typename T> void set_name(T&& n)
 	{
 		// 다음중 맞는 것은 ?
-		name = n;
-		name = std::move(n);
-		name = std::forward<T>(n);
+//		name = n;					// 항상 복사
+//		name = std::move(n);		// 항상 move
+		name = std::forward<T>(n);	// <== 정답
 	}
 };
-
 int main()
 {
 	std::string s1 = "kim";
 	std::string s2 = "lee";
 
 	People p;
-
-	p.set_name(s1);				
-	p.set_name(std::move(s2));	
+	p.set_name(s1);				// copy 되어야 한다.
+	p.set_name(std::move(s2));	// move 되어야 한다.
 
 	std::cout << s1 << std::endl; 
 	std::cout << s2 << std::endl; // ""
