@@ -36,12 +36,13 @@ public:
 		operator bool()
 		{
 			std::cout << "v[] 가 우변에 있을때" << std::endl;
-			return buff[idx];
+			return buff[idx]; // 이렇게 하면 안되고 bit 단위로 조사
 		}
 		bit_proxy& operator=(bool b)
 		{
 			std::cout << "v[] 가 좌변에 있을때" << std::endl;
-			buff[idx] = b;
+			buff[idx] = b; //이렇게하면 안됩니다.
+							// 비트단위로 set
 			return *this;
 		}
 	};
