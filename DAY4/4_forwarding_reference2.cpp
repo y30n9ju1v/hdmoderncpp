@@ -48,9 +48,14 @@ int main()
 
 	// 아래 코드를 "방법1" 과 "방법2" 로 나누어 생각해 보세요
 	// 방법 1. const std::string& 함수 한개로 모두 처리됩니다.
-	// 방법 2. 
+	// 방법 2. string&, const string& 버전을 각각 생성하게 됩니다.
 	p.set_name(s3);
 	p.set_name(s4);
+
+	// 또한 방법 2. template 이라면 
+	//			  아래처럼 string 이 아닌 경우도 함수 생성됩니다.
+	//				단 "name = 3.4" 때문에 에러는 발생
+	p.set_name(3.4); 
 
 }
 
