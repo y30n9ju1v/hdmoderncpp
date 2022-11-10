@@ -23,9 +23,11 @@ namespace std
 			}
 		};
 		MaxFn max;
-
 	}
 }
+// cppreference.com 에 접속해 보세요
+// 1번째 화면에서 "Algorithm Library" 선택해 보세요.
+
 
 int main()
 {
