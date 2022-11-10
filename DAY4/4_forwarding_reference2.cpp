@@ -15,6 +15,8 @@ private:
 	int age;
 public:
 	// move 를 지원하는 setter 만드는 방법 
+	// => 현재 코드는 "방법1" 이 좋습니다.
+	
 	// 방법 1. 2개의 setter 만들기
 //	void set_name(const std::string& n) { name = n; }
 //	void set_name(std::string&& n)      { name = std::move(n); }
@@ -39,6 +41,16 @@ int main()
 
 	std::cout << s1 << std::endl; 
 	std::cout << s2 << std::endl; // ""
+
+	//====================
+	std::string s3 = "kim";
+	const std::string s4 = "kim";
+
+	// 아래 코드를 "방법1" 과 "방법2" 로 나누어 생각해 보세요
+	// 방법 1. const std::string& 함수 한개로 모두 처리됩니다.
+	// 방법 2. 
+	p.set_name(s3);
+	p.set_name(s4);
 
 }
 
