@@ -19,7 +19,7 @@ template<typename T> void foo(T a)
 	remove_pointer_t<T> n2; // 위와 동일한 코드!  // C++14
 
 
-	
+//	std::remove_
 }
 
 
