@@ -20,3 +20,15 @@ int main()
 	std::cout << d3 << std::endl;
 }
 
+// auto f = [](auto a, auto b) { return a + b; };  의 원리
+// 핵심 : auto 인자가 결국 템플릿으로 된다.
+//       2개의 인자가 서로 다른 템플릿 이라는 점이 핵심
+class CompilerGeneratedName
+{
+public:
+	template<typename T1, typename T2>
+	inline auto operator()(T1 a, T2 b) const
+	{
+		return a + b;
+	}
+};
