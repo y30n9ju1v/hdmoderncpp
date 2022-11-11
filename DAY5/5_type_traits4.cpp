@@ -10,12 +10,10 @@ template<typename T> struct remove_pointer
 {
 	using type = T;
 };
-
 template<typename T> struct remove_pointer<T*>
 {
 	using type = T;
 };
-
 int main()
 {
 	remove_pointer<int*>::type n2; 
@@ -25,4 +23,9 @@ int main()
 
 template<typename T> void foo(T a)
 {
+	// remove_pointer 를 T에 의존해서 사용한다면 
+	// typename 꼭 표기 하세요
+
+//	remove_pointer<T>::type n1; // error
+	typename remove_pointer<T>::type n1; // ok. 
 }
