@@ -9,9 +9,14 @@ int main()
 
 
 	// mutable 람다 표현식은 "operator()" 가 상수 멤버함수가 아닙니다
+	// 아래 코드의 "v1 = 100" 은 main 의 지역변수가 아닌 "복사본" 입니다.
 	auto f1 = [v1, v2](int a) mutable { v1 = 100; return a + v1 + v2; };
 	
 	f1(100);
+
+	std::cout << v1 << std::endl; // 10
+
+	std::cout << sizeof(f1) << std::endl; // 람다표현식이 만든 객체의 크기.
 
 
 	/*
