@@ -37,10 +37,14 @@ int main()
 	// => decltype(deleter) 는 문제가 없다!!
 	// => 그런데, 람다표현식이 만드는 타입은 디폴트 생성자가 없다.
 	//    
+//	auto deleter = [](void* p) { free(p); };
+
+//	unique_ptr<int, decltype(deleter) > up((int*)malloc(40)	);
+
+	// 도전 4. ok!!!
 	auto deleter = [](void* p) { free(p); };
 
-	unique_ptr<int, decltype(deleter) > up((int*)malloc(40),
-												deleter);
+	unique_ptr<int, decltype(deleter) > up((int*)malloc(40), deleter	);
 }
 
 
