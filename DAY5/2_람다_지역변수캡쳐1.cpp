@@ -17,6 +17,9 @@ int main()
 
 	// 3. 지역변수를 캡쳐하면 접근 가능하다.
 	auto f3 = [v1, v2](int a) { return a + v1 + v2; }; // ok
+
+	// 4. 값으로 캡쳐된 지역변수는 수정할수 없다.
+	auto f4 = [v1, v2](int a) { v1 = 200; }; // error
 }
 
 
