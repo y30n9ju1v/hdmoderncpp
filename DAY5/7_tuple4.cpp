@@ -14,7 +14,7 @@ struct tuple<T, Types...> : public tuple<Types...>
 	T value;
 
 	tuple() = default;
-	tuple(const T& n, const Types&& ... args ) 
+	tuple(const T& n, const Types& ... args ) 
 		: value(n), base(args...) {}
 
 	static constexpr int N = base::N + 1;
